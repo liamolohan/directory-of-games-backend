@@ -25,5 +25,5 @@ app.post('/games', addNewGame)
 ////////////////////////////////
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Directory of Games Backend listening at http://localhost:${port}`)
 })

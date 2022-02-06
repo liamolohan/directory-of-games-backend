@@ -12,7 +12,7 @@ const init = () => {
     })
 
     mongoose.connection.on('open', () => {
-        console.log('connected to database')
+        console.log('Connected to Database')
     })
 }
 
