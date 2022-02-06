@@ -1,11 +1,12 @@
 const express = require('express')
 const cors = require('cors')
+const jwt = require('jsonwebtoken')
 require('dotenv').config()
 require('./db') ()
 
 // Import controller here
 const { getAllGames, getSingleGame, addNewGame } = require('./controllers/game_controller')
-const { register, login } = require('./controllers/user_controller')
+const { register, login, loginRequired } = require('./controllers/user_controller')
 
 /////////////
 
@@ -17,11 +18,25 @@ app.use(express.json())
 
 /////////////
 
+app.use((req, res, next) => {
+    if(req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer'){
+        jwt.verify(req.headers.authorization.split(' ')[1], 'directory_of_games', (err, decode) => {
+            if(err) req.user = undefined
+            req.user = decode
+            next()
+        })
+    }
+    else {
+        req.user = undefined
+        next()
+    }
+})
+
 
 //////////// ROUTES ////////////
 app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
-app.post('/games', addNewGame)
+app.post('/games', loginRequired, addNewGame)
 
 //// USER ROUTES ////
 app.post('/register', register)
