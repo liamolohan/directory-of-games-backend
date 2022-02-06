@@ -5,7 +5,7 @@ require('./db') ()
 
 // Import controller here
 const { getAllGames, getSingleGame, addNewGame } = require('./controllers/game_controller')
-
+const { register, login } = require('./controllers/user_controller')
 
 /////////////
 
@@ -22,6 +22,11 @@ app.use(express.json())
 app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
 app.post('/games', addNewGame)
+
+//// USER ROUTES ////
+app.post('/register', register)
+app.post('/login', login)
+
 ////////////////////////////////
 
 app.listen(port, () => {
