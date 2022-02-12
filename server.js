@@ -7,6 +7,7 @@ require('./db') ()
 // Import controller here
 const { getAllGames, getSingleGame, addNewGame } = require('./controllers/game_controller')
 const { register, login, loginRequired } = require('./controllers/user_controller')
+const { addNewRequest } = require('./controllers/request_controller')
 
 /////////////
 
@@ -41,6 +42,9 @@ app.post('/games', loginRequired, addNewGame)
 //// USER ROUTES ////
 app.post('/register', register)
 app.post('/login', login)
+
+//// REQUEST ROUTES ////
+app.post('/request-game', loginRequired, addNewRequest)
 
 ////////////////////////////////
 
