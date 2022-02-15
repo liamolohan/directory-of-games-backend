@@ -1,9 +1,9 @@
-const RequestGame = require('../models/request_schema')
+const requestGame = require('../models/request_schema')
 
 const addNewRequest = (req, res) => {
     let requestData = req.body
 
-    RequestGame.create(requestData)
+    requestGame.create(requestData)
         .then((data) => {
             if(data){
                 res.status(201).json(data)
