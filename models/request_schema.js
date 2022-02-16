@@ -11,4 +11,4 @@ const requestSchema = new Schema({
     },
 })
 
-module.exports = model('RequestGame', requestSchema)
+module.exports = model('requestGame', requestSchema)
