@@ -5,6 +5,10 @@ const gameSchema = new Schema({
         type: String,
         required: [true, 'title field is required']
     },
+    alt_title: {
+        type: String,
+        required: [true, 'title field is required']
+    },
     description: {
         type: String,
         required: [true, 'description field is required']
