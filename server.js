@@ -39,11 +39,14 @@ app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
 app.post('/games', loginRequired, addNewGame)
 
-//// USER ROUTES ////
+//// LOGGED OUT ROUTES ////
 app.post('/register', register)
 app.post('/login', login)
 
-//// REQUEST ROUTES ////
+//// ADMIN ROUTES ////
+app.post('/dashboard', loginRequired, getAllGames)
+
+//// USER ROUTES ////
 app.post('/request-game', loginRequired, addNewRequest)
 
 ////////////////////////////////
