@@ -23,7 +23,7 @@ const getSingleGame = (req, res) => {
                 res.status(200).json(data)
             }
             else{
-                res.status(404).json("Game with id: ${req.params.id} not found")
+                res.status(404).json(`Game with id: ${req.params.id} not found`)
             }
         })
         .catch((err) => {
