@@ -5,7 +5,7 @@ const gameSchema = new Schema({
         type: String,
         required: [true, 'title field is required']
     },
-    alt_title: {
+    slug: {
         type: String,
         required: [true, 'title field is required']
     },
@@ -34,7 +34,7 @@ const gameSchema = new Schema({
     },
     where_to_buy: {
         type: Object,
-        required: [true, 'where to buy field is required']
+        required: [false, 'where to buy field is not required']
     }
 })
 
