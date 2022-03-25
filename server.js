@@ -47,7 +47,7 @@ app.post('/login', login)
 app.post('/dashboard', loginRequired, getAllGames)
 
 //// USER ROUTES ////
-app.post('/request-game', loginRequired, addNewRequest)
+app.post('/request-game', addNewRequest)
 
 ////////////////////////////////
 
