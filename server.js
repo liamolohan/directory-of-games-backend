@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 //////////// ROUTES ////////////
 app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
-app.post('/games', loginRequired, addNewGame)
+app.post('/games', addNewGame)
 
 //// LOGGED OUT ROUTES ////
 app.post('/register', register)
