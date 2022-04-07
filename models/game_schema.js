@@ -18,7 +18,8 @@ const gameSchema = new Schema({
         required: [true, 'age rating field is required']
     },
     images: {
-        type: [String]
+        type: String,
+        // required: [true, 'image is not required']
     },
     developers: {
         type: String,
@@ -29,12 +30,12 @@ const gameSchema = new Schema({
         required: [true, 'publishers field is required']
     },
     intial_release_date: {
-        type: Date,
-        required: [true, 'initial release date field is required']
+        type: String,
+        // required: [false, 'initial release date field is required']
     },
     where_to_buy: {
         type: Object,
-        required: [false, 'where to buy field is not required']
+        required: [false, 'where to buy is not required']
     }
 })
 
