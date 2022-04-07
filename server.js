@@ -5,7 +5,7 @@ require('dotenv').config()
 require('./db') ()
 
 // Import controller here
-const { getAllGames, getSingleGame, addNewGame, updateGame } = require('./controllers/game_controller')
+const { getAllGames, getSingleGame, addNewGame, updateGame, deleteGame } = require('./controllers/game_controller')
 const { register, login, loginRequired } = require('./controllers/user_controller')
 const { addNewRequest } = require('./controllers/request_controller')
 
@@ -39,6 +39,7 @@ app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
 app.post('/games', addNewGame)
 app.put('/games/:id', updateGame)
+app.delete('/games/:id', deleteGame)
 
 //// LOGGED OUT ROUTES ////
 app.post('/register', register)

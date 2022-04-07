@@ -72,9 +72,30 @@ const updateGame = (req, res) => {
         })
 }
 
+const deleteGame = (req, res) => {
+    let gameData = req.id
+
+    Game.deleteOne({ _id: gameData})
+        .then((data) => {
+            if(data){
+                res.status(200).json(data)
+            }
+        })
+        .catch((err) => {
+            if(err.name === "ValidationError"){
+                res.status(422).json()
+            }
+            else{
+                console.log(err)
+                res.status(500).json(err)
+            }
+        })
+}
+
 module.exports = {
     getAllGames,
     getSingleGame,
     addNewGame,
-    updateGame
+    updateGame,
+    deleteGame
 }
