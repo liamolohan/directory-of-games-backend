@@ -20,23 +20,6 @@ const addNewRequest = (req, res) => {
         })
 }
 
-// const register = (req, res) => {
-//     let newUser = new User(req.body)
-//     // save user to db
-
-//     newUser.save((err, user) => {
-//         if(err) {
-//             return res.status(400).send({
-//                 message: err
-//             })
-//         }
-//         else {
-//             user.password = undefined
-//             return res.json(user)
-//         }
-//     })
-// }
-
 module.exports = {
     addNewRequest
 }
