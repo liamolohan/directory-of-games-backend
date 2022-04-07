@@ -52,8 +52,29 @@ const addNewGame = (req, res) => {
         })
 }
 
+const updateGame = (req, res) => {
+    let gameData = req.body
+
+    Game.updateOne(gameData)
+        .then((data) => {
+            if(data){
+                res.status(201).json(data)
+            }
+        })
+        .catch((err) => {
+            if(err.name === "ValidationError"){
+                res.status(422).json()
+            }
+            else{
+                console.log(err)
+                res.status(500).json(err)
+            }
+        })
+}
+
 module.exports = {
     getAllGames,
     getSingleGame,
-    addNewGame
+    addNewGame,
+    updateGame
 }
