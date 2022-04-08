@@ -19,7 +19,7 @@ const gameSchema = new Schema({
     },
     images: {
         type: String,
-        // required: [true, 'image is not required']
+        required: [true, 'Game image is required']
     },
     developers: {
         type: String,
@@ -29,9 +29,9 @@ const gameSchema = new Schema({
         type: String,
         required: [true, 'publishers field is required']
     },
-    intial_release_date: {
+    initial_release_date: {
         type: String,
-        // required: [false, 'initial release date field is required']
+        required: [true, 'Release date field is required']
     },
     store: {
         type: String,
