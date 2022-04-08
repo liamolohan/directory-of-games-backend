@@ -55,7 +55,7 @@ const addNewGame = (req, res) => {
 const updateGame = (req, res) => {
     let gameData = req.body
 
-    Game.updateOne(gameData)
+    Game.findByIdAndUpdate(req.params.id, gameData)
         .then((data) => {
             if(data){
                 res.status(201).json(data)
@@ -73,9 +73,9 @@ const updateGame = (req, res) => {
 }
 
 const deleteGame = (req, res) => {
-    let gameData = req.id
+    let gameData = req.body
 
-    Game.deleteOne({ _id: gameData})
+    Game.findByIdAndDelete(req.params.id, gameData)
         .then((data) => {
             if(data){
                 res.status(200).json(data)
