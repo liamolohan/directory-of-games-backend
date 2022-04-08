@@ -33,9 +33,9 @@ const gameSchema = new Schema({
         type: String,
         // required: [false, 'initial release date field is required']
     },
-    where_to_buy: {
-        type: Object,
-        required: [false, 'where to buy is not required']
+    store: {
+        type: String,
+        required: [true, 'Store field is required']
     }
 })
 
