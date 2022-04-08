@@ -36,6 +36,10 @@ const gameSchema = new Schema({
     store: {
         type: String,
         required: [true, 'Store field is required']
+    },
+    price: {
+        type: String,
+        required: [true, 'Price field is required']
     }
 })
 
