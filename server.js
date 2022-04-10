@@ -37,9 +37,9 @@ app.use((req, res, next) => {
 //////////// ROUTES ////////////
 app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
-app.post('/games', addNewGame)
-app.put('/games/:id', updateGame)
-app.delete('/games/:id', deleteGame)
+app.post('/games', loginRequired, addNewGame)
+app.put('/games/:id', loginRequired, updateGame)
+app.delete('/games/:id', loginRequired, deleteGame)
 
 //// LOGGED OUT ROUTES ////
 app.post('/register', register)
@@ -49,7 +49,7 @@ app.post('/login', login)
 app.post('/dashboard', loginRequired, getAllGames)
 
 //// USER ROUTES ////
-app.post('/request-game', addNewRequest)
+app.post('/request-game', loginRequired, addNewRequest)
 
 ////////////////////////////////
 
