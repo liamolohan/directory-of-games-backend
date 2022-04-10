@@ -9,6 +9,12 @@ const requestSchema = new Schema({
         type: String,
         required: [true, 'Game link is required']
     },
+    request_status: {
+        type: String,
+        required: [true, 'request status is required']
+    }
+}, {
+    timestamps: true
 })
 
 module.exports = model('requestGame', requestSchema)
