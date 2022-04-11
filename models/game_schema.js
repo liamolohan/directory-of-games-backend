@@ -41,6 +41,8 @@ const gameSchema = new Schema({
         type: String,
         required: [true, 'Price field is required']
     }
+}, {
+    timestamps: true
 })
 
 module.exports = model('Game', gameSchema)
