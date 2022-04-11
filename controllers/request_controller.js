@@ -33,7 +33,7 @@ const getSingleRequest = (req, res) => {
 }
 
 const addNewRequest = (req, res) => {
-    let requestData = new requestGame(req.body)
+    let requestData = new RequestGame(req.body)
 
     RequestGame.create(requestData)
         .then((data) => {

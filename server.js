@@ -43,9 +43,10 @@ app.put('/games/:id', loginRequired, updateGame)
 app.delete('/games/:id', loginRequired, deleteGame)
 
 // Requests //
+app.post('/request-game', loginRequired, addNewRequest)
 app.get('/requests/:id', loginRequired, getSingleRequest)
 app.get('/requests-dashboard', loginRequired, getAllRequests)
-app.post('/request-game', loginRequired, addNewRequest)
+
 app.put('/requests/:id', loginRequired, updateRequest)
 
 //// LOGGED OUT ROUTES ////
