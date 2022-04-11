@@ -7,7 +7,7 @@ const getAllGames = (req, res) => {
                 res.status(200).json(data)
             }
             else{
-                res.status(404).json("No games found")
+                res.status(404).json("No Games Found")
             }
         })
         .catch((err) => {
