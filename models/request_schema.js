@@ -17,4 +17,4 @@ const requestSchema = new Schema({
     timestamps: true
 })
 
-module.exports = model('requestGame', requestSchema)
+module.exports = model('RequestGame', requestSchema)

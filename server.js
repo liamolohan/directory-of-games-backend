@@ -7,7 +7,7 @@ require('./db') ()
 // Import controller here
 const { getAllGames, getSingleGame, addNewGame, updateGame, deleteGame } = require('./controllers/game_controller')
 const { register, login, loginRequired } = require('./controllers/user_controller')
-const { addNewRequest } = require('./controllers/request_controller')
+const { getAllRequests, getSingleRequest, addNewRequest, updateRequest  } = require('./controllers/request_controller')
 
 /////////////
 
@@ -33,23 +33,24 @@ app.use((req, res, next) => {
     }
 })
 
-
 //////////// ROUTES ////////////
+// Games //
 app.get('/games', getAllGames)
 app.get('/games/:id', getSingleGame)
+app.get('/games-dashboard', loginRequired, getAllGames)
 app.post('/games', loginRequired, addNewGame)
 app.put('/games/:id', loginRequired, updateGame)
 app.delete('/games/:id', loginRequired, deleteGame)
 
+// Requests //
+app.get('/requests/:id', loginRequired, getSingleRequest)
+app.get('/requests-dashboard', loginRequired, getAllRequests)
+app.post('/request-game', loginRequired, addNewRequest)
+app.put('/requests/:id', loginRequired, updateRequest)
+
 //// LOGGED OUT ROUTES ////
 app.post('/register', register)
 app.post('/login', login)
-
-//// ADMIN ROUTES ////
-app.post('/dashboard', loginRequired, getAllGames)
-
-//// USER ROUTES ////
-app.post('/request-game', loginRequired, addNewRequest)
 
 ////////////////////////////////
 
