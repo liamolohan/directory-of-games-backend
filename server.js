@@ -8,6 +8,7 @@ require('./db') ()
 const { getAllGames, getSingleGame, addNewGame, updateGame, deleteGame } = require('./controllers/game_controller')
 const { register, login, loginRequired } = require('./controllers/user_controller')
 const { getAllRequests, getSingleRequest, addNewRequest, updateRequest  } = require('./controllers/request_controller')
+const { getAllDevelopers, getSingleDeveloper, addNewDeveloper, updateDeveloper, deleteDeveloper } = require('./controllers/developer_controller')
 
 /////////////
 
@@ -46,8 +47,14 @@ app.delete('/games/:id', loginRequired, deleteGame)
 app.post('/request-game', loginRequired, addNewRequest)
 app.get('/requests/:id', loginRequired, getSingleRequest)
 app.get('/requests-dashboard', loginRequired, getAllRequests)
-
 app.put('/requests/:id', loginRequired, updateRequest)
+
+// Developers //
+app.get('/developers', getAllDevelopers)
+app.get('/developers/:id', getSingleDeveloper)
+app.post('/developers', loginRequired, addNewDeveloper)
+app.put('/developers/:id', loginRequired, updateDeveloper)
+app.delete('/developers/:id', loginRequired, deleteDeveloper)
 
 //// LOGGED OUT ROUTES ////
 app.post('/register', register)
