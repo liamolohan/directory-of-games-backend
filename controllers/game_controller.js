@@ -1,7 +1,7 @@
 const Game = require('../models/game_schema')
 
 const getAllGames = (req, res) => {
-    Game.find()
+    Game.find().populate('developers')
         .then((data) => {
             if(data){
                 res.status(200).json(data)
@@ -17,7 +17,7 @@ const getAllGames = (req, res) => {
 }
 
 const getSingleGame = (req, res) => {
-    Game.findById(req.params.id)
+    Game.findById(req.params.id).populate('developers')
         .then((data) => {
             if(data){
                 res.status(200).json(data)
