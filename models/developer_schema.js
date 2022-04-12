@@ -8,6 +8,11 @@ const developerSchema = new Schema({
     link: {
         type: String,
         required: [true, 'Link field is required']
+    },
+    games: {
+        type: [Schema.Types.ObjectId],
+        ref: "Game",
+        // required: [true, "game field is required"]
     }
 }, {
     timestamps: true
