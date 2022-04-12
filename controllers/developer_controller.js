@@ -1,7 +1,8 @@
 const Developer = require('../models/developer_schema')
+const Game = require('../models/game_schema')
 
 const getAllDevelopers = (req, res) => {
-    Developer.find()
+    Developer.find().populate('games')
         .then((data) => {
             if(data){
                 res.status(200).json(data)
@@ -19,7 +20,7 @@ const getAllDevelopers = (req, res) => {
 const getSingleDeveloper = (req, res) => {
     Developer.findById(req.params.id)
         .then((data) => {
-            if(data){
+            if(data) {
                 res.status(200).json(data)
             }
             else{
@@ -38,6 +39,15 @@ const addNewDeveloper = (req, res) => {
     Developer.create(developerData)
         .then((data) => {
             if(data){
+                // Game.findByIdAndUpdate({
+                //     _id: data.developers
+                // }, {
+                //     $push: { games: data._id }
+                // }, (err) => {
+                //     if(err) {
+                //         res.status(500).json(err)
+                //     }
+                // })
                 res.status(201).json(data)
             }
         })
@@ -57,7 +67,7 @@ const updateDeveloper = (req, res) => {
 
     Developer.findByIdAndUpdate(req.params.id, developerData)
         .then((data) => {
-            if(data){
+            if(data) {
                 res.status(201).json(data)
             }
         })
