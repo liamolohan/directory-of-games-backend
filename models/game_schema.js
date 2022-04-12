@@ -22,8 +22,9 @@ const gameSchema = new Schema({
         required: [true, 'Game image is required']
     },
     developers: {
-        type: String,
-        required: [true, 'developers field is required']
+        type: Schema.Types.ObjectId,
+        ref: "Developer",
+        // required: [true, 'developers field is required']
     },
     publishers: {
         type: String,
