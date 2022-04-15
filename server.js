@@ -52,7 +52,8 @@ app.put('/requests/:id', loginRequired, updateRequest)
 // Developers //
 app.get('/developers', getAllDevelopers)
 app.get('/developers/:id', getSingleDeveloper)
-app.post('/developers', loginRequired, addNewDeveloper)
+app.get('/developer-dashboard', loginRequired, getAllDevelopers)
+app.post('/developer', loginRequired, addNewDeveloper)
 app.put('/developers/:id', loginRequired, updateDeveloper)
 app.delete('/developers/:id', loginRequired, deleteDeveloper)
 
